@@ -199,14 +199,32 @@ const Index = () => {
             </div>
 
             <div className="order-1 lg:order-2 animate-scale-in">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                <img
-                  src="https://cdn.poehali.dev/files/7d1bdcbb-4347-46e5-85ce-de85e428a2a8.jpg"
-                  alt="Вибропогружатель DZJ-90 Yongan"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg font-bold text-sm">
-                  В НАЛИЧИИ
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-blue-400/20 to-[#FF8C00]/20 rounded-3xl blur-2xl opacity-60"></div>
+                <div className="relative bg-gradient-to-br from-slate-100 to-white p-6 rounded-2xl shadow-2xl border-2 border-slate-200">
+                  <div className="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+                  <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#FF8C00]/5 rounded-full blur-3xl"></div>
+                  
+                  <div className="relative rounded-xl overflow-hidden shadow-xl ring-2 ring-slate-200/50">
+                    <img
+                      src="https://cdn.poehali.dev/files/7d1bdcbb-4347-46e5-85ce-de85e428a2a8.jpg"
+                      alt="Вибропогружатель DZJ-90 Yongan"
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent"></div>
+                  </div>
+                  
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-br from-green-500 to-green-600 text-white px-5 py-2.5 rounded-xl shadow-xl font-bold text-sm flex items-center gap-2 animate-pulse border-2 border-white">
+                    <Icon name="CheckCircle" size={18} />
+                    В НАЛИЧИИ
+                  </div>
+                  
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-lg border-2 border-primary/20">
+                    <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                      <Icon name="Award" size={18} />
+                      <span>Сертифицировано</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

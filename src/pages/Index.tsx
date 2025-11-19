@@ -81,128 +81,134 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative min-h-[650px] md:min-h-[750px] flex items-center overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-slate-50">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url('https://cdn.poehali.dev/files/373a86eb-473d-4aa1-942e-8a9bf434e628.jpg')`,
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
-        </div>
-
+      <section className="relative py-12 md:py-20 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg mb-6 shadow-xl animate-fade-in">
-              <Icon name="Snowflake" size={22} className="animate-pulse" />
-              <span className="font-extrabold text-xl tracking-wide">НОВОГОДНЕЕ ПРЕДЛОЖЕНИЕ KGS</span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-2.5 rounded-lg mb-6 shadow-lg animate-fade-in">
+                <Icon name="Snowflake" size={20} className="animate-pulse" />
+                <span className="font-bold text-base md:text-lg">НОВОГОДНЕЕ СПЕЦПРЕДЛОЖЕНИЕ KGS</span>
+              </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 leading-tight animate-fade-in">
-              Вибропогружатель электрический крановый
-            </h1>
-            <div className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in" style={{ color: '#1B4D9E' }}>
-              DZJ-90 Yongan
-            </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-3 leading-tight animate-fade-in">
+                Вибропогружатель электрический крановый
+              </h1>
+              <div className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in" style={{ color: '#1B4D9E' }}>
+                DZJ-90 Yongan
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-md border border-slate-200 animate-fade-in hover:shadow-lg transition-shadow"
-                  style={{ animationDelay: `${index * 80}ms` }}
-                >
-                  <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
-                    <Icon name={feature.icon} size={22} className="text-primary" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-2.5 bg-white p-3.5 rounded-lg shadow-md border border-slate-200 animate-fade-in hover:shadow-lg transition-shadow"
+                    style={{ animationDelay: `${index * 80}ms` }}
+                  >
+                    <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
+                      <Icon name={feature.icon} size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900 text-sm leading-tight mb-0.5">{feature.title}</div>
+                      <div className="text-xs text-slate-600">{feature.description}</div>
+                    </div>
                   </div>
+                ))}
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-xl mb-5 animate-scale-in border-t-4 border-[#FF8C00]">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
-                    <div className="font-bold text-slate-900 text-sm leading-tight mb-1">{feature.title}</div>
-                    <div className="text-xs text-slate-600">{feature.description}</div>
+                    <div className="text-slate-600 text-sm mb-1 font-semibold">Специальная цена до конца года</div>
+                    <div className="text-4xl md:text-5xl font-black text-slate-900 mb-0.5">
+                      7 990 000 ₽
+                    </div>
+                    <div className="text-slate-500 text-sm font-medium">с НДС</div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-2xl mb-6 animate-scale-in border-t-4 border-[#FF8C00]">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                  <div className="text-slate-600 text-base mb-2 font-semibold">Специальная цена</div>
-                  <div className="text-5xl md:text-6xl font-black text-slate-900 mb-1">
-                    7 990 000 ₽
-                  </div>
-                  <div className="text-slate-500 text-base font-medium">с НДС</div>
-                </div>
-                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-transform"
-                    >
-                      <Icon name="Send" size={22} className="mr-2" />
-                      Получить предложение
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[500px]">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
-                      <DialogDescription>
-                        Заполните форму, и наш менеджер свяжется с вами в течение 30 минут
-                      </DialogDescription>
-                    </DialogHeader>
-                    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                      <div>
-                        <Input
-                          placeholder="Ваше имя *"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                          }
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Input
-                          type="tel"
-                          placeholder="Телефон *"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Input
-                          type="email"
-                          placeholder="Email"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                        />
-                      </div>
-                      <div>
-                        <Textarea
-                          placeholder="Комментарий к заявке"
-                          value={formData.comment}
-                          onChange={(e) =>
-                            setFormData({ ...formData, comment: e.target.value })
-                          }
-                          rows={3}
-                        />
-                      </div>
-                      <Button type="submit" className="w-full" size="lg">
-                        Отправить заявку
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button
+                        size="lg"
+                        className="bg-primary hover:bg-primary/90 text-white px-8 py-5 text-base font-bold shadow-xl hover:scale-105 transition-transform w-full sm:w-auto"
+                      >
+                        <Icon name="Send" size={20} className="mr-2" />
+                        Получить предложение
                       </Button>
-                    </form>
-                  </DialogContent>
-                </Dialog>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[500px]">
+                      <DialogHeader>
+                        <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
+                        <DialogDescription>
+                          Заполните форму, и наш менеджер свяжется с вами в течение 30 минут
+                        </DialogDescription>
+                      </DialogHeader>
+                      <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                        <div>
+                          <Input
+                            placeholder="Ваше имя *"
+                            value={formData.name}
+                            onChange={(e) =>
+                              setFormData({ ...formData, name: e.target.value })
+                            }
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Input
+                            type="tel"
+                            placeholder="Телефон *"
+                            value={formData.phone}
+                            onChange={(e) =>
+                              setFormData({ ...formData, phone: e.target.value })
+                            }
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Input
+                            type="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={(e) =>
+                              setFormData({ ...formData, email: e.target.value })
+                            }
+                          />
+                        </div>
+                        <div>
+                          <Textarea
+                            placeholder="Комментарий к заявке"
+                            value={formData.comment}
+                            onChange={(e) =>
+                              setFormData({ ...formData, comment: e.target.value })
+                            }
+                            rows={3}
+                          />
+                        </div>
+                        <Button type="submit" className="w-full" size="lg">
+                          Отправить заявку
+                        </Button>
+                      </form>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
+
+              <div className="text-slate-700 text-sm animate-fade-in flex items-center gap-2 bg-red-50 border border-red-200 px-4 py-2.5 rounded-lg shadow-sm">
+                <Icon name="Clock" size={16} className="text-red-600 flex-shrink-0" />
+                <span className="font-semibold">Предложение действует до 31 декабря 2025</span>
               </div>
             </div>
 
-            <div className="text-slate-700 text-sm animate-fade-in flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg inline-flex shadow-sm">
-              <Icon name="Clock" size={16} className="text-red-600" />
-              <span className="font-semibold">Предложение действует до 31 декабря 2025</span>
+            <div className="order-1 lg:order-2 animate-scale-in">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <img
+                  src="https://cdn.poehali.dev/files/7d1bdcbb-4347-46e5-85ce-de85e428a2a8.jpg"
+                  alt="Вибропогружатель DZJ-90 Yongan"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg font-bold text-sm">
+                  В НАЛИЧИИ
+                </div>
+              </div>
             </div>
           </div>
         </div>

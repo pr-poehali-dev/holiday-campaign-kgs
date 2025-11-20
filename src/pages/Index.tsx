@@ -112,7 +112,73 @@ const Index = () => {
                 <div className="flex items-baseline gap-3 mb-1">
                   <div className="text-6xl font-black text-white">7 990 000 ₽</div>
                 </div>
-                <div className="text-slate-400 text-base font-medium">с НДС</div>
+                <div className="text-slate-400 text-base font-medium mb-6">с НДС</div>
+                
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="lg"
+                      className="w-full bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00] hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                    >
+                      <Icon name="Send" size={22} className="mr-2" />
+                      Оставить заявку
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[500px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
+                      <DialogDescription>
+                        Заполните форму, и наш менеджер свяжется с вами в течение 30 минут
+                      </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                      <div>
+                        <Input
+                          placeholder="Ваше имя *"
+                          value={formData.name}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="tel"
+                          placeholder="Телефон *"
+                          value={formData.phone}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div>
+                        <Textarea
+                          placeholder="Комментарий к заявке"
+                          value={formData.comment}
+                          onChange={(e) =>
+                            setFormData({ ...formData, comment: e.target.value })
+                          }
+                          rows={3}
+                        />
+                      </div>
+                      <Button type="submit" className="w-full bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00]" size="lg">
+                        Отправить заявку
+                      </Button>
+                    </form>
+                  </DialogContent>
+                </Dialog>
               </div>
 
               <div className="flex items-center gap-3 text-slate-300 text-sm bg-slate-800/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
@@ -129,16 +195,27 @@ const Index = () => {
                 <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#FF8C00]/20 rounded-full blur-2xl"></div>
                 
                 <div className="relative bg-gradient-to-br from-slate-700/40 to-slate-800/40 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
+                  <div className="absolute -top-6 left-8 z-20">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-700 to-slate-800 rounded-xl blur-md"></div>
+                      <div className="relative bg-slate-800 px-6 py-3 rounded-xl border-2 border-white/30 shadow-2xl">
+                        <div className="text-white font-bold text-lg tracking-wide">НОВОГОДНЕЕ</div>
+                        <div className="text-white font-bold text-lg tracking-wide">СПЕЦПРЕДЛОЖЕНИЕ</div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/20">
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-600/30 via-slate-700/20 to-slate-800/30"></div>
                     <img
-                      src="https://cdn.poehali.dev/files/301ff1af-1ca2-4071-923d-d182a4c7d83e.png"
+                      src="https://cdn.poehali.dev/files/7d1bdcbb-4347-46e5-85ce-de85e428a2a8.jpg"
                       alt="Вибропогружатель DZJ-90 Yongan"
-                      className="w-full h-auto object-contain relative z-10"
+                      className="w-full h-auto object-cover brightness-110 contrast-110"
                       style={{ 
-                        filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
+                        filter: 'brightness(1.1) contrast(1.15) saturate(1.05)',
+                        imageRendering: 'crisp-edges'
                       }}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent"></div>
                   </div>
                 </div>
               </div>

@@ -108,19 +108,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="space-y-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                  <img
-                    src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
-                    alt="КоперГруппСервис"
-                    className="h-20 sm:h-28 w-auto drop-shadow-2xl flex-shrink-0"
-                  />
-                  <div className="space-y-2">
-                    <h2 className="text-xl sm:text-2xl font-bold text-white">КоперГруппСервис</h2>
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                      Производство и поставка оборудования<br />для строительства свайных фундаментов
-                    </p>
-                  </div>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+                    Производство и поставка оборудования для строительства свайных фундаментов
+                  </p>
                 </div>
 
                 <div className="flex flex-col gap-2 sm:hidden">
@@ -154,8 +146,8 @@ const Index = () => {
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight">
-                Вибропогружатель электрический крановый Yongan DZJ-90
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                Вибропогружатель электрический крановый <span className="text-[#F6A327]">Yongan DZJ-90</span>
               </h1>
 
               <div className="lg:hidden w-full">
@@ -173,20 +165,20 @@ const Index = () => {
                     className="flex items-start gap-3 text-slate-200 animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#273369]/30 flex items-center justify-center flex-shrink-0 border border-[#273369]/50">
-                      <Icon name={feature.icon} size={18} className="text-[#F6A327]" />
+                    <div className="w-10 h-10 rounded-full bg-[#F6A327]/10 flex items-center justify-center flex-shrink-0 border-2 border-[#F6A327]/30">
+                      <Icon name={feature.icon} size={20} className="text-[#F6A327]" />
                     </div>
-                    <span className="text-sm sm:text-base lg:text-lg font-medium">{feature.text}</span>
+                    <span className="text-base sm:text-lg font-medium text-white">{feature.text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-gradient-to-br from-[#272D49]/90 to-[#273369]/90 backdrop-blur-xl p-5 sm:p-8 rounded-2xl border-2 border-[#F6A327]/50 shadow-2xl">
+              <div className="bg-gradient-to-br from-[#272D49]/95 to-[#273369]/95 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border-2 border-[#F6A327]/60 shadow-2xl">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-slate-300 text-xs sm:text-sm font-semibold uppercase tracking-wide">Специальная цена</div>
-                  <div className="flex items-center gap-1 bg-[#F6A327]/20 px-2 sm:px-3 py-1 rounded-full border border-[#F6A327]/40">
-                    <Icon name="TrendingDown" size={14} className="text-[#F6A327]" />
-                    <span className="text-[#F6A327] font-bold text-xs sm:text-sm">-4%</span>
+                  <div className="text-slate-200 text-sm font-bold uppercase tracking-wide">Специальная цена</div>
+                  <div className="flex items-center gap-1 bg-[#F6A327]/25 px-3 py-1.5 rounded-full border border-[#F6A327]/50">
+                    <Icon name="TrendingDown" size={16} className="text-[#F6A327]" />
+                    <span className="text-[#F6A327] font-bold text-sm">-4%</span>
                   </div>
                 </div>
                 <div className="mb-2">
@@ -278,7 +270,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 text-slate-300 text-sm bg-[#272D49]/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
+              <div className="flex items-center gap-3 text-slate-200 text-sm sm:text-base bg-[#272D49]/60 backdrop-blur-sm px-4 sm:px-5 py-3 rounded-lg border border-[#F6A327]/20">
                 <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
                 <span className="font-medium">Предложение действует до 31 декабря 2025</span>
               </div>
@@ -303,6 +295,55 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <footer className="relative z-10 border-t border-white/10 py-8 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div className="space-y-3">
+              <img
+                src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
+                alt="КоперГруппСервис"
+                className="h-12 w-auto mx-auto md:mx-0"
+              />
+              <p className="text-slate-400 text-sm">
+                Производство и поставка оборудования для строительства свайных фундаментов
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-white font-bold text-lg">Контакты</h3>
+              <div className="space-y-2">
+                <a href="tel:+73433467475" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
+                  <Icon name="Phone" size={16} />
+                  +7 (343) 346-74-75
+                </a>
+                <a href="tel:+79122410318" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
+                  <Icon name="Phone" size={16} />
+                  +7 (912) 241-03-18
+                </a>
+                <a href="https://wa.me/79122410318" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
+                  <Icon name="MessageCircle" size={16} />
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-white font-bold text-lg">Адрес</h3>
+              <p className="text-slate-400 text-sm">
+                г. Екатеринбург<br />
+                Россия
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-white/10 text-center">
+            <p className="text-slate-500 text-sm">
+              © 2025 КоперГруппСервис. Все права защищены.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

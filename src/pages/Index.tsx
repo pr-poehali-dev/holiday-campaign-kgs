@@ -46,6 +46,16 @@ const Index = () => {
       icon: 'Shield',
       text: 'Гарантия 12 месяцев',
     },
+    {
+      icon: 'Truck',
+      text: 'Доставка по России и СНГ',
+    },
+  ];
+
+  const benefits = [
+    { label: 'Оформление в лизинг', icon: 'FileText' },
+    { label: 'Техподдержка 24/7', icon: 'Headphones' },
+    { label: 'Сертификат соответствия', icon: 'Award' },
   ];
 
   return (
@@ -62,7 +72,7 @@ const Index = () => {
               <img
                 src="https://cdn.poehali.dev/files/65576c60-3c33-4021-a0f0-1ab977b5168e.png"
                 alt="КоперГруппСервис"
-                className="h-16 w-auto drop-shadow-lg"
+                className="h-20 w-auto drop-shadow-2xl"
               />
             </div>
             <Button 
@@ -108,16 +118,102 @@ const Index = () => {
               </div>
 
               <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-8 rounded-2xl border-2 border-[#FF8C00]/50 shadow-2xl">
-                <div className="text-slate-300 text-sm mb-2 font-semibold uppercase tracking-wide">Специальная цена</div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-slate-300 text-sm font-semibold uppercase tracking-wide">Специальная цена</div>
+                  <div className="flex items-center gap-1 bg-[#FF8C00]/20 px-3 py-1 rounded-full border border-[#FF8C00]/40">
+                    <Icon name="TrendingDown" size={16} className="text-[#FF8C00]" />
+                    <span className="text-[#FF8C00] font-bold text-sm">-15%</span>
+                  </div>
+                </div>
                 <div className="flex items-baseline gap-3 mb-1">
                   <div className="text-6xl font-black text-white">7 990 000 ₽</div>
                 </div>
-                <div className="text-slate-400 text-base font-medium">с НДС</div>
+                <div className="flex items-center gap-2 text-slate-400 text-base font-medium mb-6">
+                  <span>с НДС</span>
+                  <span className="text-slate-500">•</span>
+                  <span className="line-through text-slate-500">9 400 000 ₽</span>
+                </div>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="lg"
+                      className="w-full bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00] hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                    >
+                      <Icon name="Send" size={22} className="mr-2" />
+                      Получить коммерческое предложение
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[500px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl">Запросить КП</DialogTitle>
+                      <DialogDescription>
+                        Оставьте контакты, и мы вышлем подробное коммерческое предложение в течение 1 часа
+                      </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                      <div>
+                        <Input
+                          placeholder="Ваше имя *"
+                          value={formData.name}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="tel"
+                          placeholder="Телефон *"
+                          value={formData.phone}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="email"
+                          placeholder="Email *"
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Textarea
+                          placeholder="Комментарий (необязательно)"
+                          value={formData.comment}
+                          onChange={(e) =>
+                            setFormData({ ...formData, comment: e.target.value })
+                          }
+                          rows={3}
+                        />
+                      </div>
+                      <Button type="submit" className="w-full bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00]" size="lg">
+                        Отправить запрос
+                      </Button>
+                    </form>
+                  </DialogContent>
+                </Dialog>
               </div>
 
-              <div className="flex items-center gap-3 text-slate-300 text-sm bg-slate-800/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
-                <Icon name="Clock" size={18} className="text-[#FF8C00] flex-shrink-0" />
-                <span className="font-medium">Предложение действует до 31 декабря 2025</span>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-slate-300 text-sm bg-slate-800/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
+                  <Icon name="Clock" size={18} className="text-[#FF8C00] flex-shrink-0" />
+                  <span className="font-medium">Предложение действует до 31 декабря 2025</span>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="bg-slate-800/40 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/10 text-center">
+                      <Icon name={benefit.icon} size={20} className="text-[#1B4D9E] mx-auto mb-2" />
+                      <span className="text-slate-300 text-xs font-medium leading-tight block">{benefit.label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 

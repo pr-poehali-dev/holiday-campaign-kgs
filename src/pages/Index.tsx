@@ -217,6 +217,7 @@ const Index = () => {
                       src="https://cdn.poehali.dev/files/3096e5b8-6aa5-4cae-b76d-ab62b4d177d7.png"
                       alt="Логотип КГС"
                       className="w-20 h-auto drop-shadow-lg"
+                      style={{ mixBlendMode: 'screen' }}
                     />
                   </div>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/10">

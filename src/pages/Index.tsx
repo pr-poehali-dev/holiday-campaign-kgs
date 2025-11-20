@@ -191,16 +191,27 @@ const Index = () => {
                     <span className="line-through text-[#434242] text-sm sm:text-base">Старая цена: 8 300 000 ₽</span>
                   </div>
                 </div>
-                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button
-                      size="lg"
-                      className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327] hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
-                    >
-                      <Icon name="Send" size={22} className="mr-2" />
-                      Оставить заявку
-                    </Button>
-                  </DialogTrigger>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:opacity-90 text-white px-6 py-5 text-base sm:text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                    asChild
+                  >
+                    <a href="tel:+79122410318">
+                      <Icon name="Phone" size={20} className="mr-2" />
+                      Позвонить
+                    </a>
+                  </Button>
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-[#273369] to-[#F6A327] hover:opacity-90 text-white px-6 py-5 text-base sm:text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                      >
+                        <Icon name="Send" size={20} className="mr-2" />
+                        Оставить заявку
+                      </Button>
+                    </DialogTrigger>
                   <DialogContent className="sm:max-w-[500px]">
                     <DialogHeader>
                       <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
@@ -256,7 +267,8 @@ const Index = () => {
                       </Button>
                     </form>
                   </DialogContent>
-                </Dialog>
+                  </Dialog>
+                </div>
               </div>
 
               <div className="flex items-center gap-3 text-slate-300 text-sm bg-[#272D49]/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">

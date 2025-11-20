@@ -63,14 +63,7 @@ const Index = () => {
 
       <header className="relative z-50 py-4 border-b border-white/10">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img
-                src="https://cdn.poehali.dev/files/84c7d1ca-7337-4438-aed3-40ee2f08e1a5.png"
-                alt="КоперГруппСервис"
-                className="h-24 w-auto drop-shadow-2xl"
-              />
-            </div>
+          <div className="flex items-center justify-end">
             <Button 
               variant="outline" 
               className="hidden md:flex items-center gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
@@ -212,14 +205,6 @@ const Index = () => {
                 <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#F6A327]/20 rounded-full blur-2xl"></div>
                 
                 <div className="relative bg-gradient-to-br from-[#272D49]/30 to-[#273369]/30 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                  <div className="absolute top-8 left-8 z-20">
-                    <img
-                      src="https://cdn.poehali.dev/files/3096e5b8-6aa5-4cae-b76d-ab62b4d177d7.png"
-                      alt="Логотип КГС"
-                      className="w-20 h-auto drop-shadow-lg"
-                      style={{ mixBlendMode: 'screen' }}
-                    />
-                  </div>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#272D49]/40 via-[#273369]/30 to-[#272D49]/40"></div>
                     <img

@@ -160,7 +160,7 @@ const Index = () => {
 
               <div className="lg:hidden w-full">
                 <img
-                  src="https://cdn.poehali.dev/files/4f6b4df3-78ca-44d5-9bf8-bc13af5e04a7.png"
+                  src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
                   alt="Вибропогружатель DZJ-90"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />

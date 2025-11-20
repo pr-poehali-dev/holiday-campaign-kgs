@@ -59,20 +59,20 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#272D49] via-[#273369] to-[#272D49] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
       
-      <div className="absolute top-20 left-10 w-96 h-96 bg-[#1B4D9E] rounded-full blur-3xl opacity-10"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FF8C00] rounded-full blur-3xl opacity-10"></div>
+      <div className="absolute top-20 left-10 w-96 h-96 bg-[#273369] rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F6A327] rounded-full blur-3xl opacity-15"></div>
 
       <header className="relative z-50 py-4 border-b border-white/10">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img
-                src="https://cdn.poehali.dev/files/65576c60-3c33-4021-a0f0-1ab977b5168e.png"
+                src="https://cdn.poehali.dev/files/84c7d1ca-7337-4438-aed3-40ee2f08e1a5.png"
                 alt="КоперГруппСервис"
-                className="h-20 w-auto drop-shadow-2xl"
+                className="h-24 w-auto drop-shadow-2xl"
               />
             </div>
             <Button 
@@ -91,9 +91,9 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-6">
               <div className="inline-block relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00] blur-lg opacity-30"></div>
-                <div className="relative bg-slate-800/80 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20 inline-flex items-center gap-3">
-                  <Icon name="Snowflake" size={24} className="text-[#FF8C00] animate-pulse" />
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#273369] to-[#F6A327] blur-lg opacity-30"></div>
+                <div className="relative bg-[#272D49]/80 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20 inline-flex items-center gap-3">
+                  <Icon name="Snowflake" size={24} className="text-[#F6A327] animate-pulse" />
                   <span className="text-white font-bold text-lg tracking-wide">НОВОГОДНЕЕ СПЕЦПРЕДЛОЖЕНИЕ</span>
                 </div>
               </div>
@@ -109,20 +109,20 @@ const Index = () => {
                     className="flex items-center gap-3 text-slate-200 animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-10 h-10 rounded-full bg-[#1B4D9E]/30 flex items-center justify-center flex-shrink-0 border border-[#1B4D9E]/50">
-                      <Icon name={feature.icon} size={20} className="text-[#1B4D9E]" />
+                    <div className="w-10 h-10 rounded-full bg-[#273369]/30 flex items-center justify-center flex-shrink-0 border border-[#273369]/50">
+                      <Icon name={feature.icon} size={20} className="text-[#F6A327]" />
                     </div>
                     <span className="text-lg font-medium">{feature.text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-8 rounded-2xl border-2 border-[#FF8C00]/50 shadow-2xl">
+              <div className="bg-gradient-to-br from-[#272D49]/90 to-[#273369]/90 backdrop-blur-xl p-8 rounded-2xl border-2 border-[#F6A327]/50 shadow-2xl">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-slate-300 text-sm font-semibold uppercase tracking-wide">Специальная цена</div>
-                  <div className="flex items-center gap-1 bg-[#FF8C00]/20 px-3 py-1 rounded-full border border-[#FF8C00]/40">
-                    <Icon name="TrendingDown" size={16} className="text-[#FF8C00]" />
-                    <span className="text-[#FF8C00] font-bold text-sm">-15%</span>
+                  <div className="flex items-center gap-1 bg-[#F6A327]/20 px-3 py-1 rounded-full border border-[#F6A327]/40">
+                    <Icon name="TrendingDown" size={16} className="text-[#F6A327]" />
+                    <span className="text-[#F6A327] font-bold text-sm">-4%</span>
                   </div>
                 </div>
                 <div className="flex items-baseline gap-3 mb-1">
@@ -131,13 +131,13 @@ const Index = () => {
                 <div className="flex items-center gap-2 text-slate-400 text-base font-medium mb-6">
                   <span>с НДС</span>
                   <span className="text-slate-500">•</span>
-                  <span className="line-through text-slate-500">9 400 000 ₽</span>
+                  <span className="line-through text-[#434242]">8 300 000 ₽</span>
                 </div>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button
                       size="lg"
-                      className="w-full bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00] hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                      className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327] hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
                     >
                       <Icon name="Send" size={22} className="mr-2" />
                       Получить коммерческое предложение
@@ -193,7 +193,7 @@ const Index = () => {
                           rows={3}
                         />
                       </div>
-                      <Button type="submit" className="w-full bg-gradient-to-r from-[#1B4D9E] to-[#FF8C00]" size="lg">
+                      <Button type="submit" className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327]" size="lg">
                         Отправить запрос
                       </Button>
                     </form>
@@ -202,14 +202,14 @@ const Index = () => {
               </div>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-3 text-slate-300 text-sm bg-slate-800/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
-                  <Icon name="Clock" size={18} className="text-[#FF8C00] flex-shrink-0" />
+                <div className="flex items-center gap-3 text-slate-300 text-sm bg-[#272D49]/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
+                  <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
                   <span className="font-medium">Предложение действует до 31 декабря 2025</span>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {benefits.map((benefit, index) => (
-                    <div key={index} className="bg-slate-800/40 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/10 text-center">
-                      <Icon name={benefit.icon} size={20} className="text-[#1B4D9E] mx-auto mb-2" />
+                    <div key={index} className="bg-[#272D49]/40 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/10 text-center">
+                      <Icon name={benefit.icon} size={20} className="text-[#F6A327] mx-auto mb-2" />
                       <span className="text-slate-300 text-xs font-medium leading-tight block">{benefit.label}</span>
                     </div>
                   ))}
@@ -221,12 +221,12 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 rounded-full blur-3xl"></div>
               
               <div className="relative">
-                <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#1B4D9E]/20 rounded-full blur-2xl"></div>
-                <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#FF8C00]/20 rounded-full blur-2xl"></div>
+                <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#273369]/20 rounded-full blur-2xl"></div>
+                <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#F6A327]/20 rounded-full blur-2xl"></div>
                 
-                <div className="relative bg-gradient-to-br from-slate-700/30 to-slate-800/30 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
+                <div className="relative bg-gradient-to-br from-[#272D49]/30 to-[#273369]/30 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-700/40 via-slate-800/30 to-slate-900/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#272D49]/40 via-[#273369]/30 to-[#272D49]/40"></div>
                     <img
                       src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
                       alt="Вибропогружатель DZJ-90 Yongan"

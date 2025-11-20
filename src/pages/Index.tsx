@@ -66,7 +66,13 @@ const Index = () => {
 
       <header className="relative z-50 py-3 md:py-4 border-b border-white/10">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between md:justify-end gap-3">
+          <div className="flex items-center justify-between gap-3">
+            <img
+              src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
+              alt="КоперГруппСервис"
+              className="h-10 md:h-12 w-auto"
+            />
+            <div className="flex items-center gap-3">
             <a 
               href="tel:+73433467475"
               className="flex md:hidden items-center gap-2 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md text-sm"
@@ -93,6 +99,7 @@ const Index = () => {
                 WhatsApp
               </a>
             </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -284,18 +291,12 @@ const Index = () => {
                 <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#273369]/20 rounded-full blur-2xl"></div>
                 <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#F6A327]/20 rounded-full blur-2xl"></div>
                 
-                <div className="relative bg-gradient-to-br from-[#272D49]/30 to-[#273369]/30 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#272D49]/40 via-[#273369]/30 to-[#272D49]/40"></div>
-                    <img
-                      src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
-                      alt="Вибропогружатель DZJ-90 Yongan"
-                      className="w-full h-auto object-contain relative z-10"
-                      style={{ 
-                        filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))'
-                      }}
-                    />
-                  </div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
+                    alt="Вибропогружатель DZJ-90 Yongan"
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>

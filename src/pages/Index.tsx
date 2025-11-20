@@ -80,11 +80,19 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-6">
               <div className="space-y-4">
-                <img
-                  src="https://cdn.poehali.dev/files/2264f7d8-83e1-4473-bbbc-fdf671a090fb.png"
-                  alt="КоперГруппСервис"
-                  className="h-32 w-auto drop-shadow-2xl"
-                />
+                <div className="flex items-center gap-6">
+                  <img
+                    src="https://cdn.poehali.dev/files/43c4289c-c1e3-4b88-b49f-4fae5d645596.png"
+                    alt="КоперГруппСервис"
+                    className="h-28 w-auto drop-shadow-2xl flex-shrink-0"
+                  />
+                  <div className="space-y-1">
+                    <h2 className="text-2xl font-bold text-white">КоперГруппСервис</h2>
+                    <p className="text-slate-300 text-sm leading-relaxed">
+                      Производство и поставка оборудования<br />для строительства свайных фундаментов
+                    </p>
+                  </div>
+                </div>
                 <div className="inline-block relative">
                   <div className="absolute -inset-2 bg-gradient-to-r from-[#273369] to-[#F6A327] blur-lg opacity-30"></div>
                   <div className="relative bg-[#272D49]/80 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20 inline-flex items-center gap-3">

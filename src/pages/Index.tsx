@@ -64,15 +64,34 @@ const Index = () => {
       <div className="absolute top-20 left-10 w-96 h-96 bg-[#273369] rounded-full blur-3xl opacity-20"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F6A327] rounded-full blur-3xl opacity-15"></div>
 
-      <header className="relative z-50 py-4 border-b border-white/10">
+      <header className="relative z-50 py-3 md:py-4 border-b border-white/10">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-between md:justify-end gap-3">
+            <a 
+              href="tel:+73433467475"
+              className="flex md:hidden items-center gap-2 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md text-sm"
+            >
+              <Icon name="Phone" size={16} />
+              +7 (343) 346-74-75
+            </a>
             <Button 
               variant="outline" 
               className="hidden md:flex items-center gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+              asChild
             >
-              <Icon name="Phone" size={18} />
-              +7 (343) 268-00-78
+              <a href="tel:+73433467475">
+                <Icon name="Phone" size={18} />
+                +7 (343) 346-74-75
+              </a>
+            </Button>
+            <Button 
+              className="bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:opacity-90 text-white border-0 text-sm md:text-base"
+              asChild
+            >
+              <a href="https://wa.me/79122410318" target="_blank" rel="noopener noreferrer">
+                <Icon name="MessageCircle" size={18} className="mr-2" />
+                WhatsApp
+              </a>
             </Button>
           </div>
         </div>
@@ -83,23 +102,23 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <img
                     src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
                     alt="КоперГруппСервис"
-                    className="h-28 w-auto drop-shadow-2xl flex-shrink-0"
+                    className="h-20 sm:h-28 w-auto drop-shadow-2xl flex-shrink-0"
                   />
                   <div className="space-y-2">
-                    <h2 className="text-2xl font-bold text-white">КоперГруппСервис</h2>
-                    <p className="text-slate-300 text-sm leading-relaxed">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">КоперГруппСервис</h2>
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
                       Производство и поставка оборудования<br />для строительства свайных фундаментов
                     </p>
-                    <div className="flex flex-col gap-1 pt-1">
-                      <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                    <div className="hidden sm:flex flex-col gap-1 pt-1">
+                      <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-sm sm:text-base flex items-center gap-2">
                         <Icon name="Phone" size={16} />
                         +7 (343) 346-74-75
                       </a>
-                      <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                      <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-sm sm:text-base flex items-center gap-2">
                         <Icon name="Phone" size={16} />
                         +7 (912) 241-03-18
                       </a>
@@ -115,7 +134,7 @@ const Index = () => {
                 </div>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight">
                 Вибропогружатель электрический крановый Yongan DZJ-90
               </h1>
 
@@ -129,7 +148,7 @@ const Index = () => {
                     <div className="w-10 h-10 rounded-full bg-[#273369]/30 flex items-center justify-center flex-shrink-0 border border-[#273369]/50">
                       <Icon name={feature.icon} size={20} className="text-[#F6A327]" />
                     </div>
-                    <span className="text-lg font-medium">{feature.text}</span>
+                    <span className="text-sm sm:text-base lg:text-lg font-medium">{feature.text}</span>
                   </div>
                 ))}
               </div>
@@ -143,9 +162,9 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="mb-2">
-                  <div className="flex items-baseline gap-3">
-                    <div className="text-6xl font-black text-white">7 990 000 ₽</div>
-                    <span className="text-slate-400 text-lg font-medium">с НДС</span>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-3">
+                    <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white">7 990 000 ₽</div>
+                    <span className="text-slate-400 text-base sm:text-lg font-medium">с НДС</span>
                   </div>
                   <div className="mt-2">
                     <span className="line-through text-[#434242] text-base">Старая цена: 8 300 000 ₽</span>

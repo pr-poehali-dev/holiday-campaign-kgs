@@ -170,7 +170,7 @@ const Index = () => {
                     <span className="text-slate-400 text-sm sm:text-base lg:text-lg font-medium">с НДС</span>
                   </div>
                   <div className="mt-2">
-                    <span className="line-through text-slate-500 text-sm sm:text-base font-semibold">Старая цена: 8 300 000 ₽</span>
+                    <span className="line-through text-[#F6A327] text-sm sm:text-base font-semibold">Старая цена: 8 300 000 ₽</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-slate-200 text-sm sm:text-base bg-[#272D49]/60 backdrop-blur-sm px-4 sm:px-5 py-3 rounded-lg border border-[#F6A327]/20">

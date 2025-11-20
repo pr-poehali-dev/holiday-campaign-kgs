@@ -108,33 +108,16 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+              <div className="space-y-6">
+                <div className="flex items-center gap-6">
+                  <img
+                    src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
+                    alt="КоперГруппСервис"
+                    className="h-24 md:h-28 w-auto drop-shadow-2xl flex-shrink-0"
+                  />
+                  <p className="text-slate-200 text-base md:text-lg leading-relaxed">
                     Производство и поставка оборудования для строительства свайных фундаментов
                   </p>
-                </div>
-
-                <div className="flex flex-col gap-2 sm:hidden">
-                  <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
-                    <Icon name="Phone" size={16} />
-                    +7 (343) 346-74-75
-                  </a>
-                  <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
-                    <Icon name="Phone" size={16} />
-                    +7 (912) 241-03-18
-                  </a>
-                </div>
-
-                <div className="hidden sm:flex flex-col gap-1">
-                  <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
-                    <Icon name="Phone" size={16} />
-                    +7 (343) 346-74-75
-                  </a>
-                  <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
-                    <Icon name="Phone" size={16} />
-                    +7 (912) 241-03-18
-                  </a>
                 </div>
 
                 <div className="inline-block relative w-full sm:w-auto">

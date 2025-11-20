@@ -25,9 +25,12 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const message = `Здравствуйте! Я хочу заказать вибропогружатель DZJ-90.%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}%0AEmail: ${formData.email}%0AКомментарий: ${formData.comment}`;
+    const whatsappUrl = `https://wa.me/79122410318?text=${message}`;
+    window.open(whatsappUrl, '_blank');
     toast({
-      title: 'Заявка отправлена!',
-      description: 'Наш менеджер свяжется с вами в ближайшее время.',
+      title: 'Переход в WhatsApp',
+      description: 'Сейчас откроется чат для отправки заявки.',
     });
     setFormData({ name: '', phone: '', email: '', comment: '' });
     setIsDialogOpen(false);
@@ -86,11 +89,21 @@ const Index = () => {
                     alt="КоперГруппСервис"
                     className="h-28 w-auto drop-shadow-2xl flex-shrink-0"
                   />
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     <h2 className="text-2xl font-bold text-white">КоперГруппСервис</h2>
                     <p className="text-slate-300 text-sm leading-relaxed">
                       Производство и поставка оборудования<br />для строительства свайных фундаментов
                     </p>
+                    <div className="flex flex-col gap-1 pt-1">
+                      <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                        <Icon name="Phone" size={16} />
+                        +7 (343) 346-74-75
+                      </a>
+                      <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                        <Icon name="Phone" size={16} />
+                        +7 (912) 241-03-18
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className="inline-block relative">

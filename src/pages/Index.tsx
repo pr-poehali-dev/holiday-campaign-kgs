@@ -132,7 +132,7 @@ const Index = () => {
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-700/40 via-slate-800/30 to-slate-900/40"></div>
                     <img
-                      src="https://cdn.poehali.dev/files/5f2b58b4-7b7d-4b6f-b9fb-646b04cdd3dc.png"
+                      src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
                       alt="Вибропогружатель DZJ-90 Yongan"
                       className="w-full h-auto object-contain relative z-10"
                       style={{ 

@@ -52,11 +52,7 @@ const Index = () => {
     },
   ];
 
-  const benefits = [
-    { label: 'Оформление в лизинг', icon: 'FileText' },
-    { label: 'Техподдержка 24/7', icon: 'Headphones' },
-    { label: 'Сертификат соответствия', icon: 'Award' },
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#272D49] via-[#273369] to-[#272D49] relative overflow-hidden">
@@ -125,13 +121,14 @@ const Index = () => {
                     <span className="text-[#F6A327] font-bold text-sm">-4%</span>
                   </div>
                 </div>
-                <div className="flex items-baseline gap-3 mb-1">
-                  <div className="text-6xl font-black text-white">7 990 000 ₽</div>
-                </div>
-                <div className="flex items-center gap-2 text-slate-400 text-base font-medium mb-6">
-                  <span>с НДС</span>
-                  <span className="text-slate-500">•</span>
-                  <span className="line-through text-[#434242]">8 300 000 ₽</span>
+                <div className="mb-2">
+                  <div className="flex items-baseline gap-3">
+                    <div className="text-6xl font-black text-white">7 990 000 ₽</div>
+                    <span className="text-slate-400 text-lg font-medium">с НДС</span>
+                  </div>
+                  <div className="mt-2">
+                    <span className="line-through text-[#434242] text-base">Старая цена: 8 300 000 ₽</span>
+                  </div>
                 </div>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
@@ -140,14 +137,14 @@ const Index = () => {
                       className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327] hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all"
                     >
                       <Icon name="Send" size={22} className="mr-2" />
-                      Получить коммерческое предложение
+                      Оставить заявку
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[500px]">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl">Запросить КП</DialogTitle>
+                      <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
                       <DialogDescription>
-                        Оставьте контакты, и мы вышлем подробное коммерческое предложение в течение 1 часа
+                        Заполните форму, и наш менеджер свяжется с вами в течение 30 минут
                       </DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
@@ -194,26 +191,16 @@ const Index = () => {
                         />
                       </div>
                       <Button type="submit" className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327]" size="lg">
-                        Отправить запрос
+                        Отправить заявку
                       </Button>
                     </form>
                   </DialogContent>
                 </Dialog>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-slate-300 text-sm bg-[#272D49]/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
-                  <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
-                  <span className="font-medium">Предложение действует до 31 декабря 2025</span>
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="bg-[#272D49]/40 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/10 text-center">
-                      <Icon name={benefit.icon} size={20} className="text-[#F6A327] mx-auto mb-2" />
-                      <span className="text-slate-300 text-xs font-medium leading-tight block">{benefit.label}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="flex items-center gap-3 text-slate-300 text-sm bg-[#272D49]/50 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10">
+                <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
+                <span className="font-medium">Предложение действует до 31 декабря 2025</span>
               </div>
             </div>
 
@@ -225,6 +212,13 @@ const Index = () => {
                 <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#F6A327]/20 rounded-full blur-2xl"></div>
                 
                 <div className="relative bg-gradient-to-br from-[#272D49]/30 to-[#273369]/30 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
+                  <div className="absolute top-8 left-8 z-20">
+                    <img
+                      src="https://cdn.poehali.dev/files/3096e5b8-6aa5-4cae-b76d-ab62b4d177d7.png"
+                      alt="Логотип КГС"
+                      className="w-20 h-auto drop-shadow-lg"
+                    />
+                  </div>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#272D49]/40 via-[#273369]/30 to-[#272D49]/40"></div>
                     <img

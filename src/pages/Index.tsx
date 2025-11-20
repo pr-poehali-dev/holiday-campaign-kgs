@@ -100,7 +100,7 @@ const Index = () => {
       <section className="relative z-10 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 space-y-6">
+            <div className="space-y-6">
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <img
@@ -277,7 +277,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="order-1 lg:order-2 relative animate-fade-in hidden lg:block">
+            <div className="relative animate-fade-in hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 rounded-full blur-3xl"></div>
               
               <div className="relative">

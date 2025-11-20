@@ -101,7 +101,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-6">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <img
                     src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
@@ -113,23 +113,36 @@ const Index = () => {
                     <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
                       Производство и поставка оборудования<br />для строительства свайных фундаментов
                     </p>
-                    <div className="hidden sm:flex flex-col gap-1 pt-1">
-                      <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-sm sm:text-base flex items-center gap-2">
-                        <Icon name="Phone" size={16} />
-                        +7 (343) 346-74-75
-                      </a>
-                      <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-sm sm:text-base flex items-center gap-2">
-                        <Icon name="Phone" size={16} />
-                        +7 (912) 241-03-18
-                      </a>
-                    </div>
                   </div>
                 </div>
-                <div className="inline-block relative">
+
+                <div className="flex flex-col gap-2 sm:hidden">
+                  <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                    <Icon name="Phone" size={16} />
+                    +7 (343) 346-74-75
+                  </a>
+                  <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                    <Icon name="Phone" size={16} />
+                    +7 (912) 241-03-18
+                  </a>
+                </div>
+
+                <div className="hidden sm:flex flex-col gap-1">
+                  <a href="tel:+73433467475" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                    <Icon name="Phone" size={16} />
+                    +7 (343) 346-74-75
+                  </a>
+                  <a href="tel:+79122410318" className="text-[#F6A327] hover:text-[#F6A327]/80 font-semibold text-base flex items-center gap-2">
+                    <Icon name="Phone" size={16} />
+                    +7 (912) 241-03-18
+                  </a>
+                </div>
+
+                <div className="inline-block relative w-full sm:w-auto">
                   <div className="absolute -inset-2 bg-gradient-to-r from-[#273369] to-[#F6A327] blur-lg opacity-30"></div>
-                  <div className="relative bg-[#272D49]/80 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/20 inline-flex items-center gap-3">
-                    <Icon name="Snowflake" size={24} className="text-[#F6A327] animate-pulse" />
-                    <span className="text-white font-bold text-lg tracking-wide">НОВОГОДНЕЕ СПЕЦПРЕДЛОЖЕНИЕ</span>
+                  <div className="relative bg-[#272D49]/80 backdrop-blur-sm px-4 sm:px-6 py-3 rounded-lg border border-white/20 flex items-center justify-center gap-2 sm:gap-3">
+                    <Icon name="Snowflake" size={20} className="text-[#F6A327] animate-pulse flex-shrink-0" />
+                    <span className="text-white font-bold text-sm sm:text-base lg:text-lg tracking-wide">НОВОГОДНЕЕ СПЕЦПРЕДЛОЖЕНИЕ</span>
                   </div>
                 </div>
               </div>
@@ -138,36 +151,44 @@ const Index = () => {
                 Вибропогружатель электрический крановый Yongan DZJ-90
               </h1>
 
+              <div className="lg:hidden w-full">
+                <img
+                  src="https://cdn.poehali.dev/files/4f6b4df3-78ca-44d5-9bf8-bc13af5e04a7.png"
+                  alt="Вибропогружатель DZJ-90"
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                />
+              </div>
+
               <div className="space-y-3">
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 text-slate-200 animate-fade-in"
+                    className="flex items-start gap-3 text-slate-200 animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-10 h-10 rounded-full bg-[#273369]/30 flex items-center justify-center flex-shrink-0 border border-[#273369]/50">
-                      <Icon name={feature.icon} size={20} className="text-[#F6A327]" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#273369]/30 flex items-center justify-center flex-shrink-0 border border-[#273369]/50">
+                      <Icon name={feature.icon} size={18} className="text-[#F6A327]" />
                     </div>
                     <span className="text-sm sm:text-base lg:text-lg font-medium">{feature.text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-gradient-to-br from-[#272D49]/90 to-[#273369]/90 backdrop-blur-xl p-8 rounded-2xl border-2 border-[#F6A327]/50 shadow-2xl">
+              <div className="bg-gradient-to-br from-[#272D49]/90 to-[#273369]/90 backdrop-blur-xl p-5 sm:p-8 rounded-2xl border-2 border-[#F6A327]/50 shadow-2xl">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-slate-300 text-sm font-semibold uppercase tracking-wide">Специальная цена</div>
-                  <div className="flex items-center gap-1 bg-[#F6A327]/20 px-3 py-1 rounded-full border border-[#F6A327]/40">
-                    <Icon name="TrendingDown" size={16} className="text-[#F6A327]" />
-                    <span className="text-[#F6A327] font-bold text-sm">-4%</span>
+                  <div className="text-slate-300 text-xs sm:text-sm font-semibold uppercase tracking-wide">Специальная цена</div>
+                  <div className="flex items-center gap-1 bg-[#F6A327]/20 px-2 sm:px-3 py-1 rounded-full border border-[#F6A327]/40">
+                    <Icon name="TrendingDown" size={14} className="text-[#F6A327]" />
+                    <span className="text-[#F6A327] font-bold text-xs sm:text-sm">-4%</span>
                   </div>
                 </div>
                 <div className="mb-2">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-3">
-                    <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white">7 990 000 ₽</div>
-                    <span className="text-slate-400 text-base sm:text-lg font-medium">с НДС</span>
+                  <div className="flex flex-col gap-1">
+                    <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white">7 990 000 ₽</div>
+                    <span className="text-slate-400 text-sm sm:text-base lg:text-lg font-medium">с НДС</span>
                   </div>
                   <div className="mt-2">
-                    <span className="line-through text-[#434242] text-base">Старая цена: 8 300 000 ₽</span>
+                    <span className="line-through text-[#434242] text-sm sm:text-base">Старая цена: 8 300 000 ₽</span>
                   </div>
                 </div>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -244,7 +265,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="order-1 lg:order-2 relative animate-fade-in">
+            <div className="order-1 lg:order-2 relative animate-fade-in hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 rounded-full blur-3xl"></div>
               
               <div className="relative">

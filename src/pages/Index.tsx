@@ -82,7 +82,7 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-6">
                   <img
-                    src="https://cdn.poehali.dev/files/43c4289c-c1e3-4b88-b49f-4fae5d645596.png"
+                    src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
                     alt="КоперГруппСервис"
                     className="h-28 w-auto drop-shadow-2xl flex-shrink-0"
                   />

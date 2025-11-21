@@ -164,19 +164,98 @@ const Index = () => {
                     <span className="text-[#F6A327] font-bold text-sm">-4%</span>
                   </div>
                 </div>
-                <div className="mb-4">
+                <div className="mb-2">
                   <div className="flex flex-col gap-1">
                     <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white">7 990 000 ₽</div>
                     <span className="text-slate-400 text-sm sm:text-base lg:text-lg font-medium">с НДС</span>
                   </div>
                   <div className="mt-2">
-                    <span className="line-through text-[#F6A327] text-sm sm:text-base font-semibold">Старая цена: 8 300 000 ₽</span>
+                    <span className="line-through text-[#434242] text-sm sm:text-base">Старая цена: 8 300 000 ₽</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-slate-200 text-sm sm:text-base bg-[#272D49]/60 backdrop-blur-sm px-4 sm:px-5 py-3 rounded-lg border border-[#F6A327]/20">
-                  <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
-                  <span className="font-medium">Предложение действует до 31 декабря 2025</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:opacity-90 text-white px-6 py-5 text-base sm:text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                    asChild
+                  >
+                    <a href="tel:+79122410318">
+                      <Icon name="Phone" size={20} className="mr-2" />
+                      Позвонить
+                    </a>
+                  </Button>
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-[#273369] to-[#F6A327] hover:opacity-90 text-white px-6 py-5 text-base sm:text-lg font-bold shadow-xl hover:scale-105 transition-all"
+                      >
+                        <Icon name="Send" size={20} className="mr-2" />
+                        Оставить заявку
+                      </Button>
+                    </DialogTrigger>
+                  <DialogContent className="sm:max-w-[500px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
+                      <DialogDescription>
+                        Заполните форму, и наш менеджер свяжется с вами в течение 30 минут
+                      </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+                      <div>
+                        <Input
+                          placeholder="Ваше имя *"
+                          value={formData.name}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="tel"
+                          placeholder="Телефон *"
+                          value={formData.phone}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="email"
+                          placeholder="Email *"
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Textarea
+                          placeholder="Комментарий (необязательно)"
+                          value={formData.comment}
+                          onChange={(e) =>
+                            setFormData({ ...formData, comment: e.target.value })
+                          }
+                          rows={3}
+                        />
+                      </div>
+                      <Button type="submit" className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327]" size="lg">
+                        Отправить заявку
+                      </Button>
+                    </form>
+                  </DialogContent>
+                  </Dialog>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-3 text-slate-200 text-sm sm:text-base bg-[#272D49]/60 backdrop-blur-sm px-4 sm:px-5 py-3 rounded-lg border border-[#F6A327]/20">
+                <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
+                <span className="font-medium">Предложение действует до 31 декабря 2025</span>
               </div>
             </div>
 

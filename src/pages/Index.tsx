@@ -22,6 +22,26 @@ const Index = () => {
     comment: '',
   });
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const galleryImages = [
+    {
+      src: 'https://cdn.poehali.dev/files/c8607390-3ef9-48be-aef4-b68379e74701.jpeg',
+      alt: 'Оборудование на складе'
+    },
+    {
+      src: 'https://cdn.poehali.dev/files/ff1f96c2-e892-4853-8c1d-fe006cc87359.jpeg',
+      alt: 'Вибропогружатель в упаковке'
+    },
+    {
+      src: 'https://cdn.poehali.dev/files/48b886bc-6c7b-45af-a5d3-8828f93e7e9c.jpeg',
+      alt: 'Оборудование на складе'
+    },
+    {
+      src: 'https://cdn.poehali.dev/files/7460338e-cb53-4bcb-8168-cbb6ac7865b8.jpeg',
+      alt: 'Вибропогружатель DZJ-90'
+    }
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -285,37 +305,45 @@ const Index = () => {
             Галерея оборудования
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
-              <img
-                src="https://cdn.poehali.dev/files/c8607390-3ef9-48be-aef4-b68379e74701.jpeg"
-                alt="Оборудование на складе"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
-              <img
-                src="https://cdn.poehali.dev/files/ff1f96c2-e892-4853-8c1d-fe006cc87359.jpeg"
-                alt="Вибропогружатель в упаковке"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
-              <img
-                src="https://cdn.poehali.dev/files/48b886bc-6c7b-45af-a5d3-8828f93e7e9c.jpeg"
-                alt="Оборудование на складе"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
-              <img
-                src="https://cdn.poehali.dev/files/7460338e-cb53-4bcb-8168-cbb6ac7865b8.jpeg"
-                alt="Вибропогружатель DZJ-90"
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
+            {galleryImages.map((image, index) => (
+              <div 
+                key={index}
+                className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all cursor-pointer"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                  <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-[#F6A327] transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <Icon name="X" size={32} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Полноразмерное изображение"
+            className="max-w-full max-h-full object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <footer className="relative z-10 border-t border-white/10 py-8 mt-16">
         <div className="container mx-auto px-4">

@@ -170,7 +170,7 @@ const Index = () => {
                     <span className="text-slate-400 text-sm sm:text-base lg:text-lg font-medium">с НДС</span>
                   </div>
                   <div className="mt-2">
-                    <span className="line-through text-[#434242] text-sm sm:text-base">Старая цена: 8 300 000 ₽</span>
+                    <span className="line-through text-[#F6A327] text-sm sm:text-base font-semibold">Старая цена: 8 300 000 ₽</span>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -279,6 +279,44 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="relative z-10 py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 text-white">
+            Галерея оборудования
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
+              <img
+                src="https://cdn.poehali.dev/files/c8607390-3ef9-48be-aef4-b68379e74701.jpeg"
+                alt="Оборудование на складе"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
+              <img
+                src="https://cdn.poehali.dev/files/ff1f96c2-e892-4853-8c1d-fe006cc87359.jpeg"
+                alt="Вибропогружатель в упаковке"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
+              <img
+                src="https://cdn.poehali.dev/files/48b886bc-6c7b-45af-a5d3-8828f93e7e9c.jpeg"
+                alt="Оборудование на складе"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all">
+              <img
+                src="https://cdn.poehali.dev/files/7460338e-cb53-4bcb-8168-cbb6ac7865b8.jpeg"
+                alt="Вибропогружатель DZJ-90"
+                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="relative z-10 border-t border-white/10 py-8 mt-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
@@ -307,6 +345,10 @@ const Index = () => {
                 <a href="https://wa.me/79122410318" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
                   <Icon name="MessageCircle" size={16} />
                   WhatsApp
+                </a>
+                <a href="https://kgs-ural.ru" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
+                  <Icon name="Globe" size={16} />
+                  kgs-ural.ru
                 </a>
               </div>
             </div>

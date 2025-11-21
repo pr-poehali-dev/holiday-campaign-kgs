@@ -40,6 +40,10 @@ const Index = () => {
     {
       src: 'https://cdn.poehali.dev/files/7460338e-cb53-4bcb-8168-cbb6ac7865b8.jpeg',
       alt: 'Вибропогружатель DZJ-90'
+    },
+    {
+      src: 'https://cdn.poehali.dev/files/d70a6f79-203d-448c-a34b-c5fe88dc1956.jpg',
+      alt: 'Вибропогружатель на стройплощадке'
     }
   ];
 

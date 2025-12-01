@@ -1,408 +1,342 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import Icon from '@/components/ui/icon';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import Icon from "@/components/ui/icon";
 
-const Index = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    comment: '',
-  });
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const giftCategories = [
+  {
+    id: 1,
+    title: "Термосы с гравировкой",
+    budget: "Средний бюджет",
+    description: "Термосы с именной гравировкой в фирменных цветах",
+    variants: [
+      "Soft-touch матовый термос 0,75–1 л",
+      "Металлический термос с ручкой",
+      "Термос-кружка 0,5 л",
+      "Термос с прорезиненным корпусом"
+    ],
+    colors: ["Оранжевый", "Синий", "Темно-синий", "Серый"],
+    image: "https://images.unsplash.com/photo-1485315667433-b4c23dbb7d05?w=800&q=80"
+  },
+  {
+    id: 2,
+    title: "Ежедневники в кожаной обложке",
+    budget: "Средний бюджет",
+    description: "Премиальные ежедневники с тиснением логотипа KGS",
+    variants: [
+      "Эко-кожа с тиснением логотипа",
+      "Натуральная кожа базового уровня",
+      "Кожа с резинкой в корпоративном цвете",
+      "Кольцевой механизм с металлическим шильдом",
+      "Ежедневник с кремовыми листами"
+    ],
+    colors: ["Оранжевый", "Синий", "Темно-синий", "Серый"],
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&q=80"
+  },
+  {
+    id: 3,
+    title: "Новогодний настольный календарь",
+    budget: "Средний бюджет",
+    description: "Календари с корпоративным дизайном на 2025 год",
+    variants: [
+      "Календарь фанера с лазерной гравировкой",
+      "Календарь домиком из картона",
+      "Календарь с металлической спиралью",
+      "Календарь со вставкой тех-принта KGS",
+      "Календарь-пирамида/куб с логотипом"
+    ],
+    colors: ["Синий", "Темно-синий", "Серый"],
+    image: "https://images.unsplash.com/photo-1611003228941-98852ba62227?w=800&q=80"
+  },
+  {
+    id: 4,
+    title: "Мини календарь-открытка",
+    budget: "Средний бюджет",
+    description: "Карманный календарь с поздравлением от директора",
+    variants: [
+      "Карманный календарь крафт/картон",
+      "Двусторонний календарь",
+      "Календарь-визитка с фольгой",
+      "Календарь с факсимиле подписи",
+      "QR на Telegram-канал + поздравление"
+    ],
+    colors: ["Синий", "Оранжевый"],
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+  },
+  {
+    id: 5,
+    title: "Тёплый плед",
+    budget: "Средний бюджет",
+    description: "Однотонные пледы премиального качества",
+    variants: [
+      "Флисовый плед 140×200 см серый",
+      "Плед графит",
+      "Вязаный плед крупной вязки с биркой KGS",
+      "Плед темно-синий с вышитым логотипом",
+      "Бирка из крафта с тех. принтом"
+    ],
+    colors: ["Серый", "Графит", "Темно-синий"],
+    image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80"
+  },
+  {
+    id: 6,
+    title: "Подарочные боксы чай/кофе",
+    budget: "Средний бюджет",
+    description: "Наборы чая, кофе с конфетами и шоколадом",
+    variants: [
+      "Крафт бокс + черный чай + шоколад",
+      "Темно-синий бокс + кофе + конфеты",
+      "Белая коробка с синей лентой + микс",
+      "Мини-бокс с открыткой",
+      "Бокс с брендированным саше"
+    ],
+    colors: ["Крафт", "Темно-синий", "Белый"],
+    image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=80"
+  },
+  {
+    id: 7,
+    title: "Зимний бокс",
+    budget: "Средний бюджет",
+    description: "Набор: перчатки, шапка, носки",
+    variants: [
+      "Бокс 'Работа на объекте' - рабочие перчатки + шапка + термо носки",
+      "Бокс 'Гео-минимализм' - серые перчатки с принтом координат",
+      "Бокс 'KGS-Urban winter' - повседневный теплый набор",
+      "Бокс 'Tech-accent' - черный набор с голубой тишью",
+      "Бокс 'Safe-winter' - утепленные перчатки со светоотражением"
+    ],
+    colors: ["Черный", "Серый", "Темно-синий"],
+    image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=800&q=80"
+  },
+  {
+    id: 8,
+    title: "Письменный набор премиум",
+    budget: "Премиум",
+    description: "Ручка Parker + блокнот с гравировкой",
+    variants: [
+      "Parker Roller metal + блокнот hard cover",
+      "Премиум ручка в черной коробке + блокнот с тиснением",
+      "Металлическая ручка + блокнот с гравировкой на обрезе",
+      "Набор в магнитном футляре",
+      "Набор с биркой KGS из металла/акрила"
+    ],
+    colors: ["Черный", "Синий", "Серебро"],
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"
+  },
+  {
+    id: 9,
+    title: "Элитный чай/кофе",
+    budget: "Премиум",
+    description: "Премиальные наборы чая и кофе",
+    variants: [
+      "Черная коробка + листовой чай + ложечка с логотипом",
+      "Деревянный бокс с гравировкой + specialty-coffee",
+      "Бокс двух уровней чай + кофе + шоколад",
+      "Набор в тубусах Tea/Coffee + конфеты",
+      "Коробка с фирменной тишью и биркой"
+    ],
+    colors: ["Черный", "Дерево", "Темно-синий"],
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80"
+  },
+  {
+    id: 10,
+    title: "Корпоративный пакет",
+    budget: "Премиум",
+    description: "Твердый подарочный пакет премиум-класса",
+    variants: [
+      "Пакет soft-touch с белой шелкографией",
+      "Плотный картон, синий, ручки-канат",
+      "Черный пакет с голубой тишью",
+      "Пакет с УФ-печатью логотипа тон в тон",
+      "Пакет-коробка с крышкой"
+    ],
+    colors: ["Синий", "Черный", "Белый"],
+    image: "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&q=80"
+  }
+];
 
-  const galleryImages = [
-    {
-      src: 'https://cdn.poehali.dev/files/c8607390-3ef9-48be-aef4-b68379e74701.jpeg',
-      alt: 'Оборудование на складе'
-    },
-    {
-      src: 'https://cdn.poehali.dev/files/ff1f96c2-e892-4853-8c1d-fe006cc87359.jpeg',
-      alt: 'Вибропогружатель в упаковке'
-    },
-    {
-      src: 'https://cdn.poehali.dev/files/48b886bc-6c7b-45af-a5d3-8828f93e7e9c.jpeg',
-      alt: 'Оборудование на складе'
-    },
-    {
-      src: 'https://cdn.poehali.dev/files/7460338e-cb53-4bcb-8168-cbb6ac7865b8.jpeg',
-      alt: 'Вибропогружатель DZJ-90'
-    },
-    {
-      src: 'https://cdn.poehali.dev/files/d70a6f79-203d-448c-a34b-c5fe88dc1956.jpg',
-      alt: 'Вибропогружатель на стройплощадке'
-    }
-  ];
+export default function Index() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Здравствуйте! Я хочу заказать вибропогружатель DZJ-90.%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}%0AEmail: ${formData.email}%0AКомментарий: ${formData.comment}`;
-    const whatsappUrl = `https://wa.me/79122410318?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-    toast({
-      title: 'Переход в WhatsApp',
-      description: 'Сейчас откроется чат для отправки заявки.',
-    });
-    setFormData({ name: '', phone: '', email: '', comment: '' });
-    setIsDialogOpen(false);
-  };
-
-  const features = [
-    {
-      icon: 'MapPin',
-      text: 'В наличии в Екатеринбурге',
-    },
-    {
-      icon: 'Package',
-      text: 'Полная комплектация: шкаф + зажим + ЗИП',
-    },
-    {
-      icon: 'Shield',
-      text: 'Гарантия 12 месяцев',
-    },
-    {
-      icon: 'Truck',
-      text: 'Доставка по России и СНГ',
-    },
-  ];
-
-
+  const filteredGifts = selectedCategory === "all" 
+    ? giftCategories 
+    : giftCategories.filter(gift => 
+        selectedCategory === "medium" ? gift.budget === "Средний бюджет" : gift.budget === "Премиум"
+      );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#272D49] via-[#273369] to-[#272D49] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-30"></div>
-      
-      <div className="absolute top-20 left-10 w-96 h-96 bg-[#273369] rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F6A327] rounded-full blur-3xl opacity-15"></div>
-
-      <header className="relative z-50 py-3 md:py-4 border-b border-white/10">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between gap-3">
-            <img
-              src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
-              alt="КоперГруппСервис"
-              className="h-10 md:h-12 w-auto"
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <header className="bg-[hsl(var(--kgs-blue))] text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <img 
+              src="https://cdn.poehali.dev/files/9501b69f-6f77-479a-aead-63c0849c468f.png" 
+              alt="KGS Logo" 
+              className="h-16 w-auto"
             />
-            <div className="flex items-center gap-3">
-            <a 
-              href="tel:+73433467475"
-              className="flex md:hidden items-center gap-2 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md text-sm"
-            >
-              <Icon name="Phone" size={16} />
-              +7 (343) 346-74-75
-            </a>
-            <Button 
-              variant="outline" 
-              className="hidden md:flex items-center gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-              asChild
-            >
-              <a href="tel:+73433467475">
-                <Icon name="Phone" size={18} />
-                +7 (343) 346-74-75
-              </a>
-            </Button>
-            <Button 
-              className="bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:opacity-90 text-white border-0 text-sm md:text-base"
-              asChild
-            >
-              <a href="https://wa.me/79122410318" target="_blank" rel="noopener noreferrer">
-                <Icon name="MessageCircle" size={18} className="mr-2" />
-                WhatsApp
-              </a>
-            </Button>
+            <div className="text-right">
+              <h1 className="text-4xl md:text-5xl font-bold mb-2">
+                Корпоративные подарки
+              </h1>
+              <p className="text-xl text-blue-100">KGS-URAL • Новый год 2025</p>
             </div>
           </div>
+          <p className="text-lg text-blue-100 max-w-3xl">
+            Премиальные подарочные решения с фирменной символикой для деловых партнёров и сотрудников
+          </p>
         </div>
       </header>
 
-      <section className="relative z-10 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="space-y-6">
-                <div className="flex items-center gap-6">
-                  <img
-                    src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
-                    alt="КоперГруппСервис"
-                    className="h-24 md:h-28 w-auto drop-shadow-2xl flex-shrink-0"
-                  />
-                  <p className="text-slate-200 text-base md:text-lg leading-relaxed">
-                    Производство и поставка оборудования для строительства свайных фундаментов
-                  </p>
-                </div>
+      <main className="max-w-7xl mx-auto px-4 py-12">
+        <Tabs defaultValue="all" className="mb-12" onValueChange={setSelectedCategory}>
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12">
+            <TabsTrigger value="all">
+              <Icon name="Grid3x3" className="mr-2 h-4 w-4" />
+              Все
+            </TabsTrigger>
+            <TabsTrigger value="medium">
+              <Icon name="Gift" className="mr-2 h-4 w-4" />
+              Средний бюджет
+            </TabsTrigger>
+            <TabsTrigger value="premium">
+              <Icon name="Crown" className="mr-2 h-4 w-4" />
+              Премиум
+            </TabsTrigger>
+          </TabsList>
 
-                <div className="inline-block relative w-full sm:w-auto">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-[#273369] to-[#F6A327] blur-lg opacity-30"></div>
-                  <div className="relative bg-[#272D49]/80 backdrop-blur-sm px-4 sm:px-6 py-3 rounded-lg border border-white/20 flex items-center justify-center gap-2 sm:gap-3">
-                    <Icon name="Snowflake" size={20} className="text-[#F6A327] animate-pulse flex-shrink-0" />
-                    <span className="text-white font-bold text-sm sm:text-base lg:text-lg tracking-wide">НОВОГОДНЕЕ СПЕЦПРЕДЛОЖЕНИЕ</span>
-                  </div>
-                </div>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                Вибропогружатель электрический крановый <span className="text-[#F6A327]">Yongan DZJ-90</span>
-              </h1>
-
-              <div className="lg:hidden w-full">
-                <img
-                  src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
-                  alt="Вибропогружатель DZJ-90"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                />
-              </div>
-
-              <div className="space-y-3">
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 text-slate-200 animate-fade-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="w-10 h-10 rounded-full bg-[#F6A327]/10 flex items-center justify-center flex-shrink-0 border-2 border-[#F6A327]/30">
-                      <Icon name={feature.icon} size={20} className="text-[#F6A327]" />
-                    </div>
-                    <span className="text-base sm:text-lg font-medium text-white">{feature.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-gradient-to-br from-[#272D49]/95 to-[#273369]/95 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border-2 border-[#F6A327]/60 shadow-2xl">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-slate-200 text-sm font-bold uppercase tracking-wide">Специальная цена</div>
-                  <div className="flex items-center gap-1 bg-[#F6A327]/25 px-3 py-1.5 rounded-full border border-[#F6A327]/50">
-                    <Icon name="TrendingDown" size={16} className="text-[#F6A327]" />
-                    <span className="text-[#F6A327] font-bold text-sm">-4%</span>
-                  </div>
-                </div>
-                <div className="mb-2">
-                  <div className="flex flex-col gap-1">
-                    <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white">7 990 000 ₽</div>
-                    <span className="text-slate-400 text-sm sm:text-base lg:text-lg font-medium">с НДС</span>
-                  </div>
-                  <div className="mt-2">
-                    <span className="line-through text-[#F6A327] text-sm sm:text-base font-semibold">Старая цена: 8 300 000 ₽</span>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:opacity-90 text-white px-6 py-5 text-base sm:text-lg font-bold shadow-xl hover:scale-105 transition-all"
-                    asChild
-                  >
-                    <a href="tel:+79122410318">
-                      <Icon name="Phone" size={20} className="mr-2" />
-                      Позвонить
-                    </a>
-                  </Button>
-                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                    <DialogTrigger asChild>
-                      <Button
-                        size="lg"
-                        className="bg-gradient-to-r from-[#273369] to-[#F6A327] hover:opacity-90 text-white px-6 py-5 text-base sm:text-lg font-bold shadow-xl hover:scale-105 transition-all"
+          <TabsContent value={selectedCategory}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredGifts.map((gift) => (
+                <Card 
+                  key={gift.id} 
+                  className="overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  onClick={() => {}}
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={gift.image} 
+                      alt={gift.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 right-4">
+                      <Badge 
+                        variant={gift.budget === "Премиум" ? "default" : "secondary"}
+                        className={gift.budget === "Премиум" ? "bg-[hsl(var(--kgs-orange))] text-white" : ""}
                       >
-                        <Icon name="Send" size={20} className="mr-2" />
-                        Оставить заявку
-                      </Button>
-                    </DialogTrigger>
-                  <DialogContent className="sm:max-w-[500px]">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl">Оставить заявку</DialogTitle>
-                      <DialogDescription>
-                        Заполните форму, и наш менеджер свяжется с вами в течение 30 минут
-                      </DialogDescription>
-                    </DialogHeader>
-                    <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                      <div>
-                        <Input
-                          placeholder="Ваше имя *"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                          }
-                          required
-                        />
+                        {gift.budget}
+                      </Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2 text-[hsl(var(--kgs-blue))]">
+                      {gift.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm">
+                      {gift.description}
+                    </p>
+                    
+                    <div className="mb-4">
+                      <p className="text-xs font-semibold text-gray-500 mb-2">ВАРИАНТЫ ИСПОЛНЕНИЯ:</p>
+                      <ul className="space-y-1">
+                        {gift.variants.slice(0, 3).map((variant, idx) => (
+                          <li key={idx} className="text-sm text-gray-700 flex items-start">
+                            <Icon name="Check" className="h-4 w-4 mr-2 mt-0.5 text-[hsl(var(--kgs-orange))] flex-shrink-0" />
+                            <span>{variant}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {gift.variants.length > 3 && (
+                        <p className="text-xs text-gray-500 mt-2">
+                          +{gift.variants.length - 3} вариантов
+                        </p>
+                      )}
+                    </div>
+                    
+                    <div>
+                      <p className="text-xs font-semibold text-gray-500 mb-2">ЦВЕТОВАЯ ПАЛИТРА:</p>
+                      <div className="flex gap-2 flex-wrap">
+                        {gift.colors.map((color, idx) => (
+                          <Badge key={idx} variant="outline" className="text-xs">
+                            {color}
+                          </Badge>
+                        ))}
                       </div>
-                      <div>
-                        <Input
-                          type="tel"
-                          placeholder="Телефон *"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Input
-                          type="email"
-                          placeholder="Email *"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Textarea
-                          placeholder="Комментарий (необязательно)"
-                          value={formData.comment}
-                          onChange={(e) =>
-                            setFormData({ ...formData, comment: e.target.value })
-                          }
-                          rows={3}
-                        />
-                      </div>
-                      <Button type="submit" className="w-full bg-gradient-to-r from-[#273369] to-[#F6A327]" size="lg">
-                        Отправить заявку
-                      </Button>
-                    </form>
-                  </DialogContent>
-                  </Dialog>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+
+        <section className="mt-16 bg-gradient-to-r from-[hsl(var(--kgs-blue))] to-[hsl(var(--kgs-dark-blue))] rounded-2xl p-8 md:p-12 text-white">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-4">Фирменный стиль KGS</h2>
+              <p className="text-blue-100 mb-6 leading-relaxed">
+                Все подарки оформляются в корпоративных цветах компании с нанесением логотипа 
+                профессиональными методами: гравировка, тиснение, шелкография, вышивка.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Icon name="Palette" className="h-5 w-5 mr-3 text-[hsl(var(--kgs-orange))]" />
+                  <span>Фирменная цветовая палитра</span>
+                </div>
+                <div className="flex items-center">
+                  <Icon name="Award" className="h-5 w-5 mr-3 text-[hsl(var(--kgs-orange))]" />
+                  <span>Премиальные материалы и упаковка</span>
+                </div>
+                <div className="flex items-center">
+                  <Icon name="Sparkles" className="h-5 w-5 mr-3 text-[hsl(var(--kgs-orange))]" />
+                  <span>Индивидуальная персонализация</span>
                 </div>
               </div>
-
-              <div className="flex items-center gap-3 text-slate-200 text-sm sm:text-base bg-[#272D49]/60 backdrop-blur-sm px-4 sm:px-5 py-3 rounded-lg border border-[#F6A327]/20">
-                <Icon name="Clock" size={18} className="text-[#F6A327] flex-shrink-0" />
-                <span className="font-medium">Предложение действует до 31 декабря 2025</span>
-              </div>
             </div>
-
-            <div className="relative animate-fade-in hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 rounded-full blur-3xl"></div>
-              
-              <div className="relative">
-                <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#273369]/20 rounded-full blur-2xl"></div>
-                <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-[#F6A327]/20 rounded-full blur-2xl"></div>
-                
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://cdn.poehali.dev/files/7f4f34d5-ee29-4104-befe-d86133ee54c5.png"
-                    alt="Вибропогружатель DZJ-90 Yongan"
-                    className="w-full h-auto object-contain"
-                  />
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-[hsl(var(--kgs-orange))] h-32 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl font-bold">RGB</div>
+                  <div className="text-sm mt-1">246/163/39</div>
+                </div>
+              </div>
+              <div className="bg-[hsl(var(--kgs-blue))] h-32 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl font-bold">RGB</div>
+                  <div className="text-sm mt-1">39/51/105</div>
+                </div>
+              </div>
+              <div className="bg-[hsl(var(--kgs-dark-blue))] h-32 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl font-bold">RGB</div>
+                  <div className="text-sm mt-1">39/45/73</div>
+                </div>
+              </div>
+              <div className="bg-[hsl(var(--kgs-gray))] h-32 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl font-bold">RGB</div>
+                  <div className="text-sm mt-1">67/66/66</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <section className="relative z-10 py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 text-white">
-            Галерея оборудования
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {galleryImages.map((image, index) => (
-              <div 
-                key={index}
-                className="group relative overflow-hidden rounded-xl border border-white/20 hover:border-[#F6A327]/50 transition-all cursor-pointer"
-                onClick={() => setSelectedImage(image.src)}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <Icon name="ZoomIn" size={32} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button
-            className="absolute top-4 right-4 text-white hover:text-[#F6A327] transition-colors"
-            onClick={() => setSelectedImage(null)}
-          >
-            <Icon name="X" size={32} />
-          </button>
-          <img
-            src={selectedImage}
-            alt="Полноразмерное изображение"
-            className="max-w-full max-h-full object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
+      <footer className="bg-[hsl(var(--kgs-blue))] text-white py-8 px-4 mt-16">
+        <div className="max-w-7xl mx-auto text-center">
+          <img 
+            src="https://cdn.poehali.dev/files/9501b69f-6f77-479a-aead-63c0849c468f.png" 
+            alt="KGS Logo" 
+            className="h-12 w-auto mx-auto mb-4"
           />
-        </div>
-      )}
-
-      <footer className="relative z-10 border-t border-white/10 py-8 mt-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div className="space-y-3">
-              <img
-                src="https://cdn.poehali.dev/files/f5d5f064-7217-4ed5-98c0-b6d1dca3d1ba.png"
-                alt="КоперГруппСервис"
-                className="h-12 w-auto mx-auto md:mx-0"
-              />
-              <p className="text-slate-400 text-sm">
-                Производство и поставка оборудования для строительства свайных фундаментов
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-white font-bold text-lg">Контакты</h3>
-              <div className="space-y-2">
-                <a href="tel:+73433467475" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
-                  <Icon name="Phone" size={16} />
-                  +7 (343) 346-74-75
-                </a>
-                <a href="tel:+79122410318" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
-                  <Icon name="Phone" size={16} />
-                  +7 (912) 241-03-18
-                </a>
-                <a href="https://wa.me/79122410318" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
-                  <Icon name="MessageCircle" size={16} />
-                  WhatsApp
-                </a>
-                <a href="https://kgs-ural.ru" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-[#F6A327] transition-colors text-sm flex items-center justify-center md:justify-start gap-2">
-                  <Icon name="Globe" size={16} />
-                  kgs-ural.ru
-                </a>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-white font-bold text-lg">Адрес</h3>
-              <p className="text-slate-400 text-sm">
-                г. Екатеринбург<br />
-                Россия
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-white/10 text-center">
-            <p className="text-slate-500 text-sm">
-              © 2025 КоперГруппСервис. Все права защищены.
-            </p>
-          </div>
+          <p className="text-blue-100">
+            КОПЕРGRUПСЕРВИС • КGS-URAL • 2025
+          </p>
         </div>
       </footer>
     </div>
   );
-};
-
-export default Index;
+}

@@ -17,7 +17,11 @@ const giftCategories = [
       "Термос с прорезиненным корпусом"
     ],
     colors: ["Оранжевый", "Синий", "Темно-синий", "Серый"],
-    image: "https://images.unsplash.com/photo-1485315667433-b4c23dbb7d05?w=800&q=80"
+    images: [
+      "https://illan-gifts.ru/wp-content/uploads/2023/03/89105_99-600x600.jpg",
+      "https://rusarctica.ru/d/101-1000s.jpg",
+      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&q=80"
+    ]
   },
   {
     id: 2,
@@ -32,7 +36,11 @@ const giftCategories = [
       "Ежедневник с кремовыми листами"
     ],
     colors: ["Оранжевый", "Синий", "Темно-синий", "Серый"],
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&q=80"
+    images: [
+      "https://www.oasiscatalog.com/media/product/4qN/notebook-a5-textured-pu-cover-silver-colored-edges-no-1-000098757-4qN.jpg",
+      "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&q=80",
+      "https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80"
+    ]
   },
   {
     id: 3,
@@ -47,7 +55,11 @@ const giftCategories = [
       "Календарь-пирамида/куб с логотипом"
     ],
     colors: ["Синий", "Темно-синий", "Серый"],
-    image: "https://images.unsplash.com/photo-1611003228941-98852ba62227?w=800&q=80"
+    images: [
+      "https://www.admos-gifts.ru/images/products/32562/main_image_32562.jpg",
+      "https://images.unsplash.com/photo-1611003228941-98852ba62227?w=800&q=80",
+      "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=800&q=80"
+    ]
   },
   {
     id: 4,
@@ -62,7 +74,11 @@ const giftCategories = [
       "QR на Telegram-канал + поздравление"
     ],
     colors: ["Синий", "Оранжевый"],
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?w=800&q=80",
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80"
+    ]
   },
   {
     id: 5,
@@ -77,7 +93,11 @@ const giftCategories = [
       "Бирка из крафта с тех. принтом"
     ],
     colors: ["Серый", "Графит", "Темно-синий"],
-    image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80"
+    images: [
+      "https://karavan-agency.ru/upload/iblock/eb7/rq6f3e3vv8u0rj6prcjl6jdm1q42rbwv.jpg",
+      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80",
+      "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800&q=80"
+    ]
   },
   {
     id: 6,
@@ -92,7 +112,11 @@ const giftCategories = [
       "Бокс с брендированным саше"
     ],
     colors: ["Крафт", "Темно-синий", "Белый"],
-    image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=80",
+      "https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?w=800&q=80",
+      "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&q=80"
+    ]
   },
   {
     id: 7,
@@ -107,7 +131,11 @@ const giftCategories = [
       "Бокс 'Safe-winter' - утепленные перчатки со светоотражением"
     ],
     colors: ["Черный", "Серый", "Темно-синий"],
-    image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=800&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=800&q=80",
+      "https://images.unsplash.com/photo-1514922623700-efa27684eb4b?w=800&q=80",
+      "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=800&q=80"
+    ]
   },
   {
     id: 8,
@@ -122,7 +150,11 @@ const giftCategories = [
       "Набор с биркой KGS из металла/акрила"
     ],
     colors: ["Черный", "Синий", "Серебро"],
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"
+    images: [
+      "https://presentique.ru/upload/iblock/ec2/0l8hd8w94hjj9oq0e46vugvbnkv4dgwm.jpg",
+      "https://craft-me.ru/upload/iblock/945/lku5cfr0z6l7cwlz9kkj0a1vnlbyfzr7.jpg",
+      "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"
+    ]
   },
   {
     id: 9,
@@ -137,7 +169,11 @@ const giftCategories = [
       "Коробка с фирменной тишью и биркой"
     ],
     colors: ["Черный", "Дерево", "Темно-синий"],
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80",
+      "https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?w=800&q=80",
+      "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=800&q=80"
+    ]
   },
   {
     id: 10,
@@ -152,7 +188,11 @@ const giftCategories = [
       "Пакет-коробка с крышкой"
     ],
     colors: ["Синий", "Черный", "Белый"],
-    image: "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800&q=80",
+      "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?w=800&q=80",
+      "https://images.unsplash.com/photo-1564015709377-c0b1b0d84c0d?w=800&q=80"
+    ]
   }
 ];
 
@@ -214,11 +254,16 @@ export default function Index() {
                   onClick={() => {}}
                 >
                   <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={gift.image} 
-                      alt={gift.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                    <div className="grid grid-cols-3 h-full">
+                      {gift.images.map((img, idx) => (
+                        <img 
+                          key={idx}
+                          src={img} 
+                          alt={`${gift.title} вариант ${idx + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      ))}
+                    </div>
                     <div className="absolute top-4 right-4">
                       <Badge 
                         variant={gift.budget === "Премиум" ? "default" : "secondary"}
